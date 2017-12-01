@@ -26,6 +26,12 @@ Date.prototype.strftime = (function () {
     d: function (date) {
       return zeroPad(date.getDate());
     },
+    j: function(date){
+      var jan1 = new Date(date.getFullYear(), 0, 1);
+      var diff = date.getTime() - jan1.getTime();
+
+      return Math.ceil(diff/86400000);
+    },
     m: function (date) {
       return zeroPad(date.getMonth() + 1);
     },
