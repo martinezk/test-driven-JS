@@ -7,8 +7,6 @@ function assert(message, expr) {
     return true;
 }
 
-assert.count = 0;
-
 function output(text, color){
     var p = document.createElement("p");
     p.innerHTML = text;
@@ -20,6 +18,8 @@ function testCase(name, tests){
     assert.count = 0;
     var successful = 0;
     var testCount = 0;
+    var hasSetup = typeof tests.setUp == "function";
+    var hasTearDown = typeof tests.tearDown =="function";
 
     for (var test in tests){
         if (!/^test/.test(test)){
@@ -29,8 +29,15 @@ function testCase(name, tests){
         testCount++;
 
         try {
+            if (hasSetup){
+                tests.setUp();
+            }
             tests[test]();
             output(test, "#0c0");
+
+            if (hasTearDown){
+                tests.tearDown();
+            }
             successful++;
         } catch (e) {
             output(test + " failed: " + e.message, "#c00");
