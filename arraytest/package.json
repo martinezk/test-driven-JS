@@ -4,12 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "none"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
 }
