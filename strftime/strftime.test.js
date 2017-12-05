@@ -20,16 +20,3 @@ testCase("strftime test", {
         assert("%F should act as %Y-%m-%d", Date.formats.F === "%Y-%m-%d");
     }
 });
-
-testCase("String trim test", {
-    "test trim should remove leading white-space":
-    function(){
-        assert ("should remove leading white-space",
-            "a string" === "   a string".trim());
-    },
-    "test trim should remove trailing white-space":
-    function(){
-        assert ("should remove trailing white-space",
-            "a string" === "a string   ".trim());
-    }
-});
