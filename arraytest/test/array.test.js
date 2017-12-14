@@ -7,3 +7,11 @@ describe("ArrayTest", function() {
         assert.deepEqual ([3, 4, 5], result);
     })
 })
+
+describe("FunctionTest", {
+    "test function length property": function(){
+        assert.equal(assert.length, 2);
+        assert.equal(document.getElementById.length, 1);
+        assert.equal(console.log.length, 0);
+    }
+})
